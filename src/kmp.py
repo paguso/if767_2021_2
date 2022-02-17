@@ -3,6 +3,7 @@ import sys
 verbose = True
 
 def debug(s):
+    global verbose
     if verbose:
         print(s, end="") 
 
