@@ -78,11 +78,11 @@ def boyermoore(txt, pat, ab = ascii, bc = None, gs = None):
     i = 0
     while i <= n - m:
         j = m-1
-        debug("\n"+txt+"\n")
+        #debug("\n"+txt+"\n")
         while j >= 0  and txt[i+j] == pat[j]:
             j -= 1
-        debug((i*" ") + (j*" ") + ("!" if j > 0 else "") + ((m-1-j)*"."))
-        debug("\n"+(i*" ")+pat+"\n")
+        #debug((i*" ") + (j*" ") + ("!" if j > 0 else "") + ((m-1-j)*"."))
+        #debug("\n"+(i*" ")+pat+"\n")
         if j < 0:
             occ.append(i)
             i += S[j]

@@ -84,16 +84,17 @@ def kmp(txt, pat, nxt = None):
     nxt = init_next(pat) if not nxt else nxt
     i, j = 0, 0
     while i <= n - m:
-        debug("\n"+txt+"\n")
-        debug((i*" ") + (j*"="))
+        #debug("\n"+txt+"\n")
+        #debug((i*" ") + (j*"="))
         while j < m and txt[i+j] == pat[j]:
             j += 1
             debug(".")
         if j == m:
             occ.append(i)
         else:
-            debug("!")
-        debug("\n"+(i*" ")+pat+"\n")
+            #debug("!")
+            pass
+        #debug("\n"+(i*" ")+pat+"\n")
         i = i + (j - nxt[j])
         j = max(0, nxt[j])
     return occ
@@ -114,11 +115,12 @@ def main():
     global verbose
     verbose = False
     pat = sys.argv[1]
+    nxt = init_strict_next(pat)
     txtfile = open(sys.argv[2], "r")
     count = 0
     for line in txtfile:
         txt = line.strip("\n")
-        occ = kmp(txt, pat)
+        occ = kmp(txt, pat, nxt)
         if occ:
             print(txt)
         count += len(occ)        
